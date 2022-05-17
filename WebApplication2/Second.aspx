@@ -102,6 +102,16 @@
                 <td>
                     &nbsp;</td>
             </tr>
+            <tr>
+                <td>
+                    &nbsp;</td>
+                <td>
+                    <asp:Button ID="UpdateBtn" runat="server" Text="更新" onclick="UpdateBtn_Click"/>
+                </td>
+                <td>
+                    <asp:Button ID="QueryBtn" runat="server" Text="查看" onclick="QueryBtn_Click"/>
+                </td>
+            </tr>
         </table>
     
     </div>
@@ -119,15 +129,6 @@
                 &nbsp;</td>
             <td>
                 <asp:Label ID="LblInfo" runat="server"></asp:Label>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                <asp:Button ID="UpdateBtn" runat="server" Text="更新" onclick="UpdateBtn_Click"/>
             </td>
             <td>
                 &nbsp;</td>

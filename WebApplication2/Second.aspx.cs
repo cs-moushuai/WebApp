@@ -14,7 +14,6 @@ namespace WebApplication2
         string id;
         string name, psw, sex, age, like, img;
         string sqlUpdate;
-        bool flag = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             /*
@@ -43,8 +42,6 @@ namespace WebApplication2
             sqlUpdate = $"UPDATE `user`"+
                         $" SET name = '{name}', psw = '{psw}', sex = '{sex}', age = '{age}', hobby = '{like}', imgUrl = '{img}'"+
                         $" WHERE iduser = {id}; ";
-            if (flag) return;
-            flag = true;
             sqlQuery = "SELECT * FROM user";
             comm = new MySqlCommand(sqlQuery, conn);
             conn.Open();
@@ -113,6 +110,32 @@ namespace WebApplication2
             string strImg = "<br>照片：" + img;
             string strEnd = "<br>修改成功";
             LblInfo.Text = strName + strPsw + strSex + strAge + strLike + strImg + strEnd;
+        }
+        protected void QueryBtn_Click(object sender, EventArgs e) {
+            string connection = "Server=localhost;Uid=root;Database=homework;Port=3306;";
+            MySqlConnection conn = new MySqlConnection(connection);
+            string sqlQuery = "SELECT * FROM user";
+            MySqlCommand comm = new MySqlCommand(sqlQuery, conn);
+            conn.Open();
+            MySqlDataReader dr = comm.ExecuteReader();
+            LblInfo.Text = "";
+            while (dr.Read()) {
+                /*
+                string id2 = (String)dr[0].ToString().Trim();
+                string name2 = (String)dr[1].ToString().Trim();
+                string psw2 = (String)dr[2].ToString().Trim();
+                string sex2 = (String)dr[3].ToString().Trim();
+                string age2 = (String)dr[4].ToString().Trim();
+                string hobby2 = (String)dr[5].ToString().Trim();
+                string img2 = (String)dr[6].ToString().Trim();*/
+                for (int i=0; i<6; i++) {
+                    LblInfo.Text += $"{(String)dr[i].ToString().Trim()}, ";
+                }
+                LblInfo.Text += $"{(String)dr[6].ToString().Trim()}<br/>";
+                //LblInfo.Text += $"{id2}, {name2}, {psw2}, {sex2}, {age2}, {hobby2}, {img2}";
+            }
+            conn.Close();
+
         }
     }
 }
