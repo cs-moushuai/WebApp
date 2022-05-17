@@ -6,14 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.IO;
+using System.Data;
+using WebApplication2.AppCode;
 
 namespace WebApplication2
 {
     public partial class Second : System.Web.UI.Page
     {
-        string id;
-        string name, psw, sex, age, like, img;
-        string sqlUpdate;
         protected void Page_Load(object sender, EventArgs e)
         {
             /*
@@ -23,36 +22,16 @@ namespace WebApplication2
             Response.Write("接受到参数：" + paras2);*/
             //Response.Write("UserName: "+Session["userName"]+"\n");
             //Response.Write("Psw:" + Session["psw"]);
-            string connection = "Server=localhost;Uid=root;Database=homework;Port=3306;";
-            MySqlConnection conn = new MySqlConnection(connection);
+
+            if (TextBox1.Text != "") return;
+            DataAccess da = new DataAccess();
             string sqlQuery = "SELECT * FROM user";
-            MySqlCommand comm = new MySqlCommand(sqlQuery, conn);
-            conn.Open();
-            MySqlDataReader dr = comm.ExecuteReader();
-            while (dr.Read()) {
-                id = (String)dr[0].ToString().Trim();
-            }
-            conn.Close();
-            name = TextBox1.Text;
-            psw = TextBox2.Text;
-            sex = RadioButtonList1.SelectedValue;
-            age = TextBox3.Text;
-            like = DropDownList1.SelectedValue;
-            img = Image1.ImageUrl;
-            sqlUpdate = $"UPDATE `user`"+
-                        $" SET name = '{name}', psw = '{psw}', sex = '{sex}', age = '{age}', hobby = '{like}', imgUrl = '{img}'"+
-                        $" WHERE iduser = {id}; ";
-            sqlQuery = "SELECT * FROM user";
-            comm = new MySqlCommand(sqlQuery, conn);
-            conn.Open();
-            dr = comm.ExecuteReader();
-            while (dr.Read()) {
-                id = (String)dr[0].ToString().Trim();
-                string name2 = (String)dr[1].ToString().Trim();
-                string psw2 = (String)dr[2].ToString().Trim();
-                if (name2 == Session["userName"].ToString() && psw2 == Session["psw"].ToString()) { 
-                    TextBox1.Text = name2;
-                    TextBox2.Text = psw2;
+            DataTable dt = da.QueryData(sqlQuery);
+            foreach (DataRow dr in dt.Rows) {
+                string id = (String)dr[0].ToString().Trim();
+                if (id == Session["id"].ToString()) { 
+                    TextBox1.Text = (String)dr[1].ToString().Trim();
+                    TextBox2.Text = (String)dr[2].ToString().Trim();
                     RadioButtonList1.SelectedValue = (String)dr[3].ToString().Trim();
                     TextBox3.Text = (String)dr[4].ToString().Trim();
                     DropDownList1.SelectedValue = (String)dr[5].ToString().Trim();
@@ -60,7 +39,6 @@ namespace WebApplication2
                     break;
                 }
             }
-            conn.Close();
         }
         protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -91,16 +69,23 @@ namespace WebApplication2
         }
         protected void UpdateBtn_Click(object sender, EventArgs e) {
             //读取的是旧的数据，是因为点击update后会刷新
+            string name, psw, sex, age, like, img;
+            string sqlUpdate;
+            name = TextBox1.Text;
+            psw = TextBox2.Text;
+            sex = RadioButtonList1.SelectedValue;
+            age = TextBox3.Text;
+            like = DropDownList1.SelectedValue;
+            img = Image1.ImageUrl;
+            sqlUpdate = $"UPDATE `user`"+
+                        $" SET name = '{name}', psw = '{psw}', sex = '{sex}', age = '{age}', hobby = '{like}', imgUrl = '{img}'"+
+                        $" WHERE iduser = {Session["id"]}";
 
-            string connection = "Server=localhost;Uid=root;Database=homework;Port=3306;";
-            MySqlConnection conn = new MySqlConnection(connection);
+            DataAccess da = new DataAccess();
+            da.ChangeData(sqlUpdate);
             
             //string sqlInsert = $"INSERT INTO user VALUES (NULL, '{name}', '{psw}', '{sex}', '{age}', '{like}', '{img}');";
             //LblInfo.Text = sqlUpdate;
-            MySqlCommand comm = new MySqlCommand(sqlUpdate, conn);
-            conn.Open();
-            comm.ExecuteNonQuery();
-            conn.Close();
 
             string strName = "用户名：" + name;
             string strPsw = "<br>密码：" + psw;
@@ -112,14 +97,11 @@ namespace WebApplication2
             LblInfo.Text = strName + strPsw + strSex + strAge + strLike + strImg + strEnd;
         }
         protected void QueryBtn_Click(object sender, EventArgs e) {
-            string connection = "Server=localhost;Uid=root;Database=homework;Port=3306;";
-            MySqlConnection conn = new MySqlConnection(connection);
+            DataAccess da = new DataAccess();
             string sqlQuery = "SELECT * FROM user";
-            MySqlCommand comm = new MySqlCommand(sqlQuery, conn);
-            conn.Open();
-            MySqlDataReader dr = comm.ExecuteReader();
+            DataTable dt = da.QueryData(sqlQuery);
             LblInfo.Text = "";
-            while (dr.Read()) {
+            foreach (DataRow dr in dt.Rows) {
                 /*
                 string id2 = (String)dr[0].ToString().Trim();
                 string name2 = (String)dr[1].ToString().Trim();
@@ -134,7 +116,6 @@ namespace WebApplication2
                 LblInfo.Text += $"{(String)dr[6].ToString().Trim()}<br/>";
                 //LblInfo.Text += $"{id2}, {name2}, {psw2}, {sex2}, {age2}, {hobby2}, {img2}";
             }
-            conn.Close();
 
         }
     }

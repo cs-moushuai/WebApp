@@ -66,7 +66,6 @@
     <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Caculator.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -92,6 +91,8 @@
     <Compile Include="Second.aspx.designer.cs">
       <DependentUpon>Second.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppCode\Caculator.cs" />
+    <Compile Include="AppCode\DataAccess.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
+using WebApplication2.AppCode;
+using System.Data;
 
 namespace WebApplication2
 {
@@ -26,28 +28,25 @@ namespace WebApplication2
             Response.Write("<h1>在线人数：" + int.Parse(Application["count"].ToString()) + "</h1>");*/
             Session["userName"] = NameTxt.Text.ToString();
             Session["psw"] = PswTxt.Text.ToString();
+            Session["id"] = 0;
             
 
         }
 
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
-            string connection = "Server=localhost;Uid=root;Database=homework;Port=3306;";
-            MySqlConnection conn = new MySqlConnection(connection);
+            DataAccess da = new DataAccess();
             string sqlQuery = "SELECT * FROM user";
-            MySqlCommand comm = new MySqlCommand(sqlQuery, conn);
-            conn.Open();
-            MySqlDataReader dr = comm.ExecuteReader();
-            while (dr.Read()) {
+            DataTable dt = da.QueryData(sqlQuery);
+            foreach (DataRow dr in dt.Rows) {
                 string name = (String)dr[1].ToString().Trim();
                 string psw = (String)dr[2].ToString().Trim();
-                if (name == Session["userName"].ToString() && psw == Session["psw"].ToString()) { 
+                if (name == Session["userName"].ToString() && psw == Session["psw"].ToString()) {
+                    Session["id"] = (String)dr[0].ToString().Trim();
                     Response.Redirect("Second.aspx");
-                    conn.Close();
                     return;
                 }
             }
-            conn.Close();
             Response.Write("<script>alert('用户名或密码错误，请先注册...')</script>");
 
         }

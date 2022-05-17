@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using MySql.Data.MySqlClient;
+using WebApplication2.AppCode;
 
 namespace WebApplication2
 {
@@ -52,14 +53,10 @@ namespace WebApplication2
             string img = Image1.ImageUrl;
 
             
-            string connection = "Server=localhost;Uid=root;Database=homework;Port=3306;";
-            MySqlConnection conn = new MySqlConnection(connection);
-            string sqlInsert = $"INSERT INTO user VALUES (NULL, '{name}', '{psw}', '{sex}', '{age}', '{like}', '{img}');";
-            MySqlCommand comm = new MySqlCommand(sqlInsert, conn);
-            conn.Open();
-            comm.ExecuteNonQuery();
-            conn.Close();
 
+            string sqlInsert = $"INSERT INTO user VALUES (NULL, '{name}', '{psw}', '{sex}', '{age}', '{like}', '{img}');";
+            DataAccess da = new DataAccess();
+            da.ChangeData(sqlInsert);
             string strName = "用户名：" + name;
             string strPsw = "<br>密码：" + psw;
             string strSex = "<br>性别：" + sex;
