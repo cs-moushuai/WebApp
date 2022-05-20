@@ -1,7 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 using System.Data;
-namespace WebApplication2.AppCode
+namespace WebApp.AppCode
 {
     public class DataAccess
     {

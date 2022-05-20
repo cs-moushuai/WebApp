@@ -7,13 +7,11 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2
-{
-
-
-    public partial class Second
-    {
-
+namespace WebApp {
+    
+    
+    public partial class Register {
+        
         /// <summary>
         /// form1 控件。
         /// </summary>
@@ -21,8 +19,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        protected global::System.Web.UI.HtmlControls.HtmlForm RegForm;
+        
         /// <summary>
         /// TextBox1 控件。
         /// </summary>
@@ -30,8 +28,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
+        protected global::System.Web.UI.WebControls.TextBox NameTxt;
+        
         /// <summary>
         /// RequiredFieldValidator1 控件。
         /// </summary>
@@ -39,8 +37,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator NameRequiredFieldValidator;
+        
         /// <summary>
         /// TextBox2 控件。
         /// </summary>
@@ -48,8 +46,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-
+        protected global::System.Web.UI.WebControls.TextBox PswTxt;
+        
         /// <summary>
         /// RequiredFieldValidator2 控件。
         /// </summary>
@@ -57,8 +55,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator PswRequiredFieldValidator;
+        
         /// <summary>
         /// RadioButtonList1 控件。
         /// </summary>
@@ -66,8 +64,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
-
+        protected global::System.Web.UI.WebControls.RadioButtonList SexRL;
+        
         /// <summary>
         /// TextBox3 控件。
         /// </summary>
@@ -75,8 +73,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
-
+        protected global::System.Web.UI.WebControls.TextBox AgeTxt;
+        
         /// <summary>
         /// RangeValidator1 控件。
         /// </summary>
@@ -84,8 +82,9 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
-
+        protected global::System.Web.UI.WebControls.RangeValidator AgeRangeValidator;
+        
+        protected global::System.Web.UI.WebControls.DropDownList DepartmentDDL;
         /// <summary>
         /// DropDownList1 控件。
         /// </summary>
@@ -93,26 +92,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-
-        /// <summary>
-        /// ImageButton1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
-
-        /// <summary>
-        /// FileUpload2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
-
+        protected global::System.Web.UI.WebControls.DropDownList HobbyDDL;
+        
         /// <summary>
         /// FileUpload1 控件。
         /// </summary>
@@ -120,8 +101,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-
+        protected global::System.Web.UI.WebControls.FileUpload ImgFileUpload;
+        
         /// <summary>
         /// btnUpload 控件。
         /// </summary>
@@ -130,7 +111,7 @@ namespace WebApplication2
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
-
+        
         /// <summary>
         /// Image1 控件。
         /// </summary>
@@ -138,8 +119,8 @@ namespace WebApplication2
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
-
+        protected global::System.Web.UI.WebControls.Image Img;
+        
         /// <summary>
         /// LblInfo 控件。
         /// </summary>
@@ -148,15 +129,14 @@ namespace WebApplication2
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LblInfo;
-
+        
         /// <summary>
-        /// UpdateBtn 控件。
+        /// RegBtn 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateBtn;
-        protected global::System.Web.UI.WebControls.Button QueryBtn;
+        protected global::System.Web.UI.WebControls.Button RegBtn;
     }
 }

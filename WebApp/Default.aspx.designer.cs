@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
+namespace WebApp {
     
     
     public partial class Default {

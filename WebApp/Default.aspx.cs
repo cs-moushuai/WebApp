@@ -5,10 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
-using WebApplication2.AppCode;
+using WebApp.AppCode;
 using System.Data;
 
-namespace WebApplication2
+namespace WebApp
 {
     public partial class Default : System.Web.UI.Page
     {
@@ -36,14 +36,24 @@ namespace WebApplication2
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
             DataAccess da = new DataAccess();
-            string sqlQuery = "SELECT * FROM user";
+            string sqlQuery = "SELECT * FROM administrator";
             DataTable dt = da.QueryData(sqlQuery);
             foreach (DataRow dr in dt.Rows) {
                 string name = (String)dr[1].ToString().Trim();
                 string psw = (String)dr[2].ToString().Trim();
                 if (name == Session["userName"].ToString() && psw == Session["psw"].ToString()) {
+                    Response.Redirect("Administrator.aspx");
+                    return;
+                }
+            }
+            sqlQuery = "SELECT * FROM user";
+            dt = da.QueryData(sqlQuery);
+            foreach (DataRow dr in dt.Rows) {
+                string name = (String)dr[1].ToString().Trim();
+                string psw = (String)dr[2].ToString().Trim();
+                if (name == Session["userName"].ToString() && psw == Session["psw"].ToString()) {
                     Session["id"] = (String)dr[0].ToString().Trim();
-                    Response.Redirect("Second.aspx");
+                    Response.Redirect("User.aspx");
                     return;
                 }
             }
@@ -53,7 +63,7 @@ namespace WebApplication2
         protected void ExitBtn_Click(object sender, EventArgs e)
         {
             //Lblinfo.Text = NameTxt.Text.ToString();
-            Response.Redirect("PageData.aspx");
+            Response.Redirect("Register.aspx");
 
         }
         protected void CountBtn_Click(object sender, EventArgs e)
