@@ -55,7 +55,7 @@ namespace WebApp {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ExitBtn;
+        protected global::System.Web.UI.WebControls.Button RegBtn;
         
         /// <summary>
         /// InputData 控件。
@@ -64,7 +64,7 @@ namespace WebApp {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InputData;
+        //protected global::System.Web.UI.WebControls.TextBox InputData;
         
         /// <summary>
         /// Result 控件。
@@ -73,7 +73,7 @@ namespace WebApp {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Result;
+        //protected global::System.Web.UI.WebControls.Label Result;
         
         /// <summary>
         /// CountBtn 控件。
@@ -82,7 +82,7 @@ namespace WebApp {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CountBtn;
+        //protected global::System.Web.UI.WebControls.Button CountBtn;
         
         /// <summary>
         /// Lblinfo 控件。
@@ -91,6 +91,6 @@ namespace WebApp {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lblinfo;
+        //protected global::System.Web.UI.WebControls.Label Lblinfo;
     }
 }

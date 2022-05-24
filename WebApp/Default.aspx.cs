@@ -60,12 +60,13 @@ namespace WebApp
             Response.Write("<script>alert('用户名或密码错误，请先注册...')</script>");
 
         }
-        protected void ExitBtn_Click(object sender, EventArgs e)
+        protected void RegBtn_Click(object sender, EventArgs e)
         {
             //Lblinfo.Text = NameTxt.Text.ToString();
             Response.Redirect("Register.aspx");
 
         }
+        /*
         protected void CountBtn_Click(object sender, EventArgs e)
         {
             int[] arr = new int[100];
@@ -90,6 +91,6 @@ namespace WebApp
             Caculator ca = new Caculator(arr2);
             Result.Text = "Avg: " + ca.Avg().ToString() + " Sum: "+ca.Sum() + " Max: " + ca.Max() + " Min: " + ca.Min();
 
-        }
+        }*/
     }
 }

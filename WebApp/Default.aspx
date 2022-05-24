@@ -10,56 +10,32 @@
         {
             text-align: center;
         }
-        .style2
+        .hint
         {
-            height: 24px;
         }
     </style>
 </head>
 <body>
     <div align="center">
-    <form id="form1" runat="server">
-        <div style="display: inline-block;">
-            用户名：<br />
-            密码：
-        </div>
-        <div style="display: inline-block;">
-            <asp:TextBox ID="NameTxt" runat="server"></asp:TextBox>
+        <form id="form1" runat="server">
+            <div>
+                <div style="display: inline-block">
+                    <span class="hint">用户名：</span>
+                    <br/>
+                    <span class="hint">密码: </span>
+                </div>
+                <div style="display: inline-block">
+                    <asp:TextBox ID="NameTxt" runat="server"></asp:TextBox>
+                    <br/>
+                    <asp:TextBox ID="PswTxt" runat="server" TextMode="Password"></asp:TextBox>
+                </div>
+            </div>
+        
             <br />
-            <asp:TextBox ID="PswTxt" runat="server" TextMode="Password"></asp:TextBox>
-        </div>
-    
-    <br />
-    <asp:Button ID="LoginBtn" runat="server" onclick="LoginBtn_Click" Text="登录" />
-    <asp:Button ID="ExitBtn" runat="server" onclick="ExitBtn_Click" Text="注册" />
-    
-    
-    <table style="width:100%;">
-        <tr>
-            <td class="style2" style="text-align: left">
-                输入数据：</td>
-            <td class="style2">
-                <asp:TextBox ID="InputData" runat="server" AutoPostBack="True" 
-                    BorderStyle="Double"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td class="style2" style="text-align: left">
-                结果：</td>
-            <td class="style2">
-                <asp:Label ID="Result" runat="server"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td class="style2">
-            </td>
-            <td class="style2">
-                <asp:Button ID="CountBtn" runat="server" onclick="CountBtn_Click" Text="计算" />
-            </td>
-        </tr>
-    </table>
-    </form>
-    
+            <asp:Button ID="LoginBtn" runat="server" onclick="LoginBtn_Click" Text="登录" />
+            <asp:Button ID="RegBtn" runat="server" onclick="RegBtn_Click" Text="注册" />
+        </form>
+        
     </div>
     
 </body>
