@@ -40,6 +40,15 @@ namespace WebApp
             DataTable dt = da.QueryData(cmd);
             DepartmentInfo.DataSource = dt;
             DepartmentInfo.DataBind();
+
+            int cnt = dt.Rows.Count;
+            Cnt.Text = "部门员工数：" + cnt.ToString();
+            int[] arr = new int[cnt];
+            for (int i = 0; i < cnt; i++) {
+                arr[i] = int.Parse(dt.Rows[i][4].ToString());
+            }
+            Caculator ca = new Caculator(arr);
+            Result.Text = "平均年龄: " + ca.Avg() + "，最大年龄: " + ca.Max() + "，最小年龄: " + ca.Min();
         }
     }
 }

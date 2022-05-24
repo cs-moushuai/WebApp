@@ -16,5 +16,7 @@ namespace WebApp
         protected global::System.Web.UI.WebControls.DropDownList DepartmentDDL;
         protected global::System.Web.UI.WebControls.GridView DepartmentInfo;
         protected global::System.Web.UI.WebControls.Button QueryBtn;
+        protected global::System.Web.UI.WebControls.Label Cnt;
+        protected global::System.Web.UI.WebControls.Label Result;
     }
 }
