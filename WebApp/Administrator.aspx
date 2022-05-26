@@ -46,6 +46,7 @@
                 </asp:GridView> 
                 <asp:Label ID="Result" runat="server"></asp:Label>
             </div>
+            <asp:Button ID="ShowAllBtn" runat="server" Text="显示所有员工" onclick="ShowAllBtn_Click"/>
         </div>
             
     </form>

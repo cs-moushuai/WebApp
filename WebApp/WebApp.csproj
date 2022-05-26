@@ -65,6 +65,7 @@
     <Content Include="Default.aspx" />
     <Content Include="Administrator.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="ShowAll.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -98,6 +99,12 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAll.aspx.cs">
+      <DependentUpon>ShowAll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowAll.aspx.designer.cs">
+      <DependentUpon>ShowAll.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

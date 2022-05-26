@@ -50,5 +50,8 @@ namespace WebApp
             Caculator ca = new Caculator(arr);
             Result.Text = "平均年龄: " + ca.Avg() + "，最大年龄: " + ca.Max() + "，最小年龄: " + ca.Min();
         }
+        protected void ShowAllBtn_Click(object sender, EventArgs e) {
+            Response.Redirect("ShowAll.aspx");
+        }
     }
 }

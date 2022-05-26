@@ -18,5 +18,6 @@ namespace WebApp
         protected global::System.Web.UI.WebControls.Button QueryBtn;
         protected global::System.Web.UI.WebControls.Label Cnt;
         protected global::System.Web.UI.WebControls.Label Result;
+        protected global::System.Web.UI.WebControls.Button ShowAllBtn;
     }
 }
