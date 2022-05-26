@@ -15,6 +15,7 @@ namespace WebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (IsPostBack) return;
             DataAccess da = new DataAccess();
             string cmd = "SELECT * FROM department";
             DataTable dt = da.QueryData(cmd);
