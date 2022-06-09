@@ -67,6 +67,7 @@ namespace WebApp
             string strImg = "<br>照片：" + img;
             string strEnd = "<br>注册成功";
             LblInfo.Text = strName + strPsw + strSex + strAge + strDep + strHobby + strImg + strEnd;
+            Response.Write("<script>alert('注册成功')</script>");
         }
     }
 }
